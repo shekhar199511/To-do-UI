@@ -1,0 +1,13 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 5em;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    padding: 0 10px;
+    align-items: center;
+    z-index: 10;
+    background-color: #8a2b06;
+    color: white;
+}
+

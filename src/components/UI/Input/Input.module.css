@@ -1,0 +1,12 @@
+.input-component{
+    height: 3em;
+    width: 70%;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    border: none;
+}
+
+input-component:focus{
+    border: 2px solid blue;
+}
+
