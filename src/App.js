@@ -1,18 +1,18 @@
-import React, {Fragment, useState} from 'react';
+import React from 'react';
 
 import Header from './components/UI/Header/Header';
 import Layout from './components/Layout/Layout';
-import TaskList from './pages/TaskList/TaskList';
-import { taskCollection } from './Constant';
+import { TaskContentProvider } from './store/task-context';
+
 function App() {
 
-  const [tasks, setTasks] = useState(taskCollection);
-
   return (
-    <div>
-      <Header/>
-      <Layout />
-    </div>
+    <TaskContentProvider>
+      <div>
+        <Header/>
+        <Layout />
+      </div>
+    </TaskContentProvider>
   );
 }
 
