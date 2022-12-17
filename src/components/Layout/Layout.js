@@ -26,9 +26,6 @@ const Layout = props => {
 
     return (
         <Fragment>
-            {/* <div className={classes.wallpaper}>
-                <img src={wallpaper} alt="time-wallpaper"/>   
-            </div> */}
             <div className={classes.content}>
                 <div className = {classes.form}>
                     <Input placeholder="Add your task here" ref={inputTaskRef}/>

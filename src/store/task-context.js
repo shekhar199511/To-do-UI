@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-import {taskCollection} from '../Constant';
+import getTodoList from "../services/todoService";
+// import {taskCollection} from '../Constant';
 
 const TaskContext = React.createContext({
     tasks : [],
@@ -13,7 +14,7 @@ const TaskContext = React.createContext({
 
 export const TaskContentProvider = props => {
 
-    const [tasks, setTasks] = useState(taskCollection)
+    const [tasks, setTasks] = useState([])
     const [formAction, setFormAction] = useState('')
     const [selectedIndex, setSelectedIndex] = useState(-1)
     const [inputTaskRef, setInputTaskRef] = useState(null)
@@ -49,8 +50,16 @@ export const TaskContentProvider = props => {
     }
 
     useEffect(()=>{
-        if(inputTaskRef) inputTaskRef.current.value = ''
+        if(inputTaskRef && inputTaskRef.current) inputTaskRef.current.value = ''
     }, [tasks])
+
+    useEffect(()=>{
+        (async () => {
+            let tasks = await getTodoList()
+            setTasks(tasks)
+        })()
+        
+    }, [])
 
 
 

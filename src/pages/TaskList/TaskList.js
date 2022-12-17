@@ -9,14 +9,13 @@ const TaskList = props => {
     const {tasks, transformTasks, saveTasks, formAction} = useContext(TaskContext);
     
 
-    const actionHandler = (action, index) => {
-        props.onAction(action, index)
-    };
-
     return(
         <Fragment>
             {
-                tasks.map((task, index)=><TaskItem key={index} task={task} index={index}/>)
+                tasks && tasks.map((task, index)=><TaskItem key={index} task={task} index={index}/>)
+            }
+            {
+                !tasks && <p>No tasks available!!!</p>
             }
         </Fragment>
     )
