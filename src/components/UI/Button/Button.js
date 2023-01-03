@@ -1,11 +1,13 @@
-import React from "react";
+import styled from "styled-components";
 
-import classes from './Button.module.css';
-
-const Button =  props => {
-    return (
-        <button type={props.type} className={classes.btn} onClick={props.onClick}>{props.name}</button>
-    )
-}
-
+const Button = styled.button`
+    height: 3em;
+    width: 10%;
+    color: white;
+    background-color: blue;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+`
 export default Button
