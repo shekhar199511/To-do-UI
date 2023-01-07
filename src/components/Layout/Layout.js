@@ -6,23 +6,29 @@ import Input from '../UI/Input/Input'
 import Button from "../UI/Button/Button";
 import {taskCollection} from "../../Constant";
 import TaskList from "../../pages/TaskList/TaskList";
+import { useDispatch, useSelector } from "react-redux";
 
 const Layout = props => {
 
     
-    let formAction = 'save';
+    // let formAction = 'save';
     let actionIndex = -1;
 
+    let formAction = useSelector(state => state.formAction)
+    let tasks = useSelector(state => state.tasks)
+
     const inputTaskRef = useRef();
-    const [tasks, setTasks] = useState(taskCollection)
+    // const [tasks, setTasks] = useState(taskCollection)
+
+    const dispatch = useDispatch();
 
     const saveTaskHandler = (event, formAction) => {
         event.preventDefault();
-        if(formAction==='save') setTasks(oldArray => [...oldArray, inputTaskRef.current.value])
+        if(formAction==='save') dispatch({'type':'add', 'value': inputTaskRef.current.value})
         else if(formAction==='edit'){
             let prevTasksArray = [...tasks]
             prevTasksArray[actionIndex] = inputTaskRef.current.value
-            setTasks(prevTasksArray)
+            dispatch({'type':'edit', 'value': prevTasksArray})
             actionIndex = -1
         }
         
@@ -39,10 +45,6 @@ const Layout = props => {
         if(action=="edit"){
             formAction = 'edit'
             inputTaskRef.current.value = editItem
-        } else if(action=="delete"){
-            setTasks(oldArray => 
-                oldArray.filter(item => item!=editItem)
-            )
         }
     }
 
@@ -51,15 +53,12 @@ const Layout = props => {
 
     return (
         <Fragment>
-            {/* <div className={classes.wallpaper}>
-                <img src={wallpaper} alt="time-wallpaper"/>   
-            </div> */}
             <div className={classes.content}>
                 <div className = {classes.form}>
                     <Input placeholder="Add your task here" ref={inputTaskRef}/>
                     <Button type="submit" name="Add" onClick = {(event)=>saveTaskHandler(event, formAction)}/>
                 </div>
-                <TaskList tasks={tasks} onAction = {manipulateTaskHandler}/>
+                <TaskList onAction = {manipulateTaskHandler}/>
             </div>
             
         </Fragment>

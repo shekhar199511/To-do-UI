@@ -1,13 +1,19 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 
 import classes from './TaskItem.module.css';
 
+
 const TaskItem = props => {
+
+    const dispatch = useDispatch();
 
     const setActionhandler = (action, index) => {
         
         console.log(action, index)
-        props.onAction(action, index)
+        if(action=='edit') props.onAction(action, index)
+        if(action=='delete') dispatch({type : 'delete', index:props.index})
+        
     }
 
     return (
