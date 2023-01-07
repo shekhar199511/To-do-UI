@@ -54,13 +54,15 @@ const Layout = props => {
             {/* <div className={classes.wallpaper}>
                 <img src={wallpaper} alt="time-wallpaper"/>   
             </div> */}
-            <div className={classes.content}>
-                <div className = {classes.form}>
-                    <Input placeholder="Add your task here" ref={inputTaskRef}/>
-                    <Button type="submit" name="Add" onClick = {(event)=>saveTaskHandler(event, formAction)}/>
+            <div className={classes.wallpaper}></div>
+                <div className={classes.content}>
+                    <div className = {classes.form}>
+                        <Input placeholder="Add your task here" ref={inputTaskRef}/>
+                        <Button type="submit" name="Add" onClick = {(event)=>saveTaskHandler(event, formAction)}/>
+                    </div>
+                    <TaskList tasks={tasks} onAction = {manipulateTaskHandler}/>
                 </div>
-                <TaskList tasks={tasks} onAction = {manipulateTaskHandler}/>
-            </div>
+            
             
         </Fragment>
     )

@@ -18,5 +18,8 @@
 
 .action-item{
     cursor: pointer;
-    color: grey;
+    color: white
+}
+.task{
+    color: white;
 }
