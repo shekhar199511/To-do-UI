@@ -1,13 +1,20 @@
 import React from 'react';
 
 import classes from './TaskItem.module.css';
+import { useDispatch } from 'react-redux';
 
 const TaskItem = props => {
 
+
+    const dispatch = useDispatch()
+
     const setActionhandler = (action, index) => {
-        
-        console.log(action, index)
-        props.onAction(action, index)
+       
+        dispatch({
+            'type' : action,
+            'value' : index,
+        })
+
     }
 
     return (
