@@ -1,0 +1,25 @@
+.profile-container{
+    display: flex;
+    padding: 10px 10px;
+}
+
+img{
+    width : 25%;
+    height : 25%;
+    padding: 5px;
+}
+
+.quote-container{
+    font-family: cursive;
+    color: darkred;
+    text-align: center;
+}
+
+.quote::after{
+    content: close-quote;
+}
+
+.quote::before{
+    content: open-quote;
+}
+
