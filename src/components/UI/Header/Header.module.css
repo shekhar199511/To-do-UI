@@ -8,6 +8,16 @@
     align-items: center;
     z-index: 10;
     background-color: #8a2b06;
+    
+}
+
+a{
+    text-decoration: none;
+    cursor: pointer;
     color: white;
+}
+
+a:hover{
+    color: blue;
 }
 
