@@ -9,8 +9,8 @@ const Profile = (props) => {
         <img src={profile} alt="pic of road"/>
 
         <p>
-            Hi, the image is on our trip to goa. It seems beautiful, doesn't it. 
-            This is the repo in which I have practiced almost all important JS/React/CSS concepts.
+            Hi, the image is on from trip to goa. It seems beautiful, doesn't it. 
+            This is the repo in which I have practiced most of the important JS/React/CSS concepts.
             <br/> <br/>
             Losing a job opened my eyes. I mean nothing, absolutely nothing is permanent. I was supposed to be the solution, instead I have become poison, the burden.
 
