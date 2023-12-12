@@ -7,7 +7,11 @@ import Button from "../UI/Button/Button";
 import {taskCollection} from "../../Constant";
 import TaskList from "../../pages/TaskList/TaskList";
 
+import useFormHandler from "../../hooks/useFormHandler";
+
 const Layout = props => {
+
+    const [value, onChangeHandler] = useFormHandler()
 
     
     let formAction = 'save';
@@ -15,6 +19,12 @@ const Layout = props => {
 
     const inputTaskRef = useRef();
     const [tasks, setTasks] = useState(taskCollection)
+
+    useEffect(()=>{
+        console.log('rendered on everry value change')
+    }, [value])
+
+
 
     const saveTaskHandler = (event, formAction) => {
         event.preventDefault();
@@ -58,6 +68,7 @@ const Layout = props => {
                 <div className = {classes.form}>
                     <Input placeholder="Add your task here" ref={inputTaskRef}/>
                     <Button type="submit" name="Add" onClick = {(event)=>saveTaskHandler(event, formAction)}/>
+                    <input placeholder="hooks" onChange={onChangeHandler}/>
                 </div>
                 <TaskList tasks={tasks} onAction = {manipulateTaskHandler}/>
             </div>
